@@ -5,7 +5,7 @@
 type UserSetting {
   userId: Int!
   receiveNotifications: Boolean!
-  recieveEmails: Boolean!
+  receiveEmails: Boolean!
 }
 
 type User {
@@ -16,7 +16,22 @@ type User {
 }
 
 type Query {
-  getUser: User!
   getUserById(id: Int!): User
   getUsers: [User!]!
+}
+
+type Mutation {
+  createUser(createUserData: CreateUserData!): User!
+  createrUserSettings(createUserSettingsData: CreateUserSettingsData!): UserSetting!
+}
+
+input CreateUserData {
+  username: String!
+  displayName: String
+}
+
+input CreateUserSettingsData {
+  userId: Int!
+  receiveNotifications: Boolean = false
+  receiveEmails: Boolean = false
 }
