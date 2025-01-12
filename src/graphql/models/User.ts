@@ -10,9 +10,9 @@ export class User {
     @Field()
     username: string;
 
-    @Field({nullable: false})
-    displayName: string;
+    @Field({nullable: true})
+    displayName?: string;
 
-    @Field(type => UserSetting, {nullable: false})
-    settings: UserSetting
+    @Field(type => UserSetting)
+    settings?: UserSetting
 }

@@ -11,8 +11,8 @@ type UserSetting {
 type User {
   id: Int!
   username: String!
-  displayName: String!
-  settings: UserSetting!
+  displayName: String
+  settings: UserSetting
 }
 
 type Query {
