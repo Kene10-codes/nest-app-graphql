@@ -8,11 +8,11 @@ export class UserSetting {
     @Field(type => Int)
     userId: number;
 
-    @Column()
+    @Column({default: false})
     @Field(type => Boolean, {defaultValue: false})
     receiveNotifications: boolean;
 
-    @Column()
+    @Column({default: false})
     @Field(type => Boolean, {defaultValue: false})
     receiveEmails: boolean
 }

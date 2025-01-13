@@ -4,11 +4,10 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UserSettingsRevolver } from './graphql/resolvers/userResolver/UserSettingsRevolver';
-import { db } from './database/db'
-import entities from './graphql/models/'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './users/UserModule';
-
+import { db } from './database/db'
+import entities from './graphql/models/'
 
 @Module({
   imports: [
@@ -18,7 +17,7 @@ import { UserModule } from './users/UserModule';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: db.host,
       port: db.port,
       username: db.username,
       password: db.password,
@@ -29,6 +28,6 @@ import { UserModule } from './users/UserModule';
     UserModule
   ],
   controllers: [AppController],
-  providers: [AppService, UserSettingsRevolver],
+  providers: [AppService],
 })
 export class AppModule {}

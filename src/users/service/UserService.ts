@@ -9,7 +9,7 @@ export class UserService {
     constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) {}
 
     getUsers() {
-        return this.userRepository.find()
+        return this.userRepository.find({relations: ['settings']})
     }
 
     createUser(createUserData: CreateUserData) {
